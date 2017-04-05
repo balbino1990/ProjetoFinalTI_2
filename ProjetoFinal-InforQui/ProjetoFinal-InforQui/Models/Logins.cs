@@ -6,9 +6,9 @@ using System.Web;
 
 namespace ProjetoFinal_InforQui.Models
 {
-    public class Login
+    public class Logins
     {
-        public int LoginID { get; set; }
+        public int LoginsID { get; set; }
 
         public string Email { get; set; }
 

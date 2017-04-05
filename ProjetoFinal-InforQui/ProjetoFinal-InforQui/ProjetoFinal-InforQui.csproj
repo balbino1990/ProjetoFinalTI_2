@@ -136,7 +136,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administradores.cs" />
     <Compile Include="Models\InforQuiDB.cs" />
-    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Logins.cs" />
     <Compile Include="Models\Utilizadores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

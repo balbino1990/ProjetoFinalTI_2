@@ -5,8 +5,10 @@ using System.Web;
 
 namespace ProjetoFinal_InforQui.Models
 {
-    public class Administradores
+    public class Administradores : Utilizadores
     {
+        public int AdministradoresID { get; set; }
 
+        public string funcao { get; set; }
     }
 }
