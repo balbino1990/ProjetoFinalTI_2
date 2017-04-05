@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ProjetoFinal_InforQui.Models
 {
-    public class Administradores : Utilizadores
+    public class Administradores
     {
         public int AdministradoresID { get; set; }
 
