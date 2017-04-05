@@ -26,5 +26,7 @@ namespace ProjetoFinal_InforQui.Models
         public string Morada { get; set; }
 
         public int Contacto { get; set; }
+
+        public Byte Imagem { get; set; }
     }
 }

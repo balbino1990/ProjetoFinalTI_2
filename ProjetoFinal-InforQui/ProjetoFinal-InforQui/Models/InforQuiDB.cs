@@ -19,5 +19,7 @@ namespace ProjetoFinal_InforQui.Models
         //descrever as tabelas que estão na base de dados
         public virtual DbSet<Utilizadores> Utilizadores { get; set; }
 
+        public virtual DbSet<Login> Login { get; set; }
+
     }
 }
