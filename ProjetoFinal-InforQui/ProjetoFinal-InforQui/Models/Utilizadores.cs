@@ -7,27 +7,43 @@ namespace ProjetoFinal_InforQui.Models
 {
     public class Utilizadores
     {
+        //#####################################################
+        //O construtor da classe Utilizadores
+        public Utilizadores()
+        {
+            ListaDeCompras = new HashSet<Compras>();
+        }
+        
+        //####################################################
+        //##########Os atributos da tabela Compras############
+        //####################################################
         //O identificador da tabela Utilizador
         public int UtilizadoresID { get; set; }
-        //O atributo Nome
+        //O Nome do utilizador
         public string Nome { get; set; }
-        //O atributo Apelido
+        //O Apelido do utilizador
         public string Apelido { get; set; }
-        //O atributo Email
+        //O Email do utilizador
         public string Email { get; set; }
-        //O atributo Password
+        //O Password do utilizador
         public string Password { get; set; }
-        //O atributo para confirmar o password
+        //O confirmar do password do utilizador
         public string ConfirmPassword { get; set; }
-        //O atributo do Genero
+        //O Genero do utilizador
         public char Genero { get; set; }
-        //O atributo data de nascimento
+        //A data de nascimento do utilizador
         public int DataNascimento { get; set; }
-        //O atributo morada
+        //A Morada do utilizador
         public string Morada { get; set; }
-        //O atributo de conttacto de utilizador
+        //O Contacto do utilizador
         public int Contacto { get; set; }
-        //O atributo de imagem dos produtos (este atributo vai ser facultativo)
+        //O Imgem do utilizador(este atributo vai ser facultativo)
         public Byte Imagem { get; set; }
+
+        //##################################################################
+        //################Relacionamento e chaves estrangeiras##############
+        //##################################################################
+        //1 Utilizador relaciona com muitas Compras
+        public virtual ICollection<Compras> ListaDeCompras { get; set; }
     }
 }

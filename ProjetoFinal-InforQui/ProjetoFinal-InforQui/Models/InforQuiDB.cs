@@ -20,8 +20,13 @@ namespace ProjetoFinal_InforQui.Models
 
         //tabela de Utilizadores
         public virtual DbSet<Utilizadores> Utilizadores { get; set; }
-        //tabela de Login
-        public virtual DbSet<Logins> Logins { get; set; }
-
+        //tabela de Produtos
+        public virtual DbSet<Produtos> Produtos { get; set; }
+        //tabela de Compras_Produtos
+        public virtual DbSet<Compras_Produtos> Compras_Produtos { get; set; }
+        //tabela de Compras
+        public virtual DbSet<Compras> Compras { get; set; }
+        //tabela de Login de utilizador
+        public virtual DbSet<Login> Login { get; set; }
     }
 }

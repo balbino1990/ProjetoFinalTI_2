@@ -7,6 +7,13 @@ namespace ProjetoFinal_InforQui.Models
 {
     public class Produtos
     {
+        //################ O construtor da classe####################
+        public Produtos()
+        {
+            ListaComprasProdutos = new HashSet<Compras_Produtos>();
+        }
+
+        //############ Os atributos da tabela Produtos################
         //O identificador da tabela Produtos
         public int ProdutosID { get; set; }
         //O nome do produto
@@ -21,5 +28,10 @@ namespace ProjetoFinal_InforQui.Models
         public Byte Imagem { get; set; }
         //O tipo do produto
         public string Tipo { get; set; }
+
+        //########## Relacionamentos e chaves estrangeiras
+        //Relacionamento entre a tabela Produto e Compras_Produtos
+        //1 'Produto' relacionar com muitas 'Compras_Produtos'
+        public virtual ICollection<Compras_Produtos> ListaComprasProdutos { get; set; }
     }
 }
