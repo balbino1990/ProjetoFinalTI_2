@@ -17,11 +17,11 @@ namespace ProjetoFinal_InforQui.Models
         public InforQuiDB() : base("InforQuiDBConnection") { }
 
         //descrever as tabelas que estão na base de dados
+
+        //tabela de Utilizadores
         public virtual DbSet<Utilizadores> Utilizadores { get; set; }
-
+        //tabela de Login
         public virtual DbSet<Logins> Logins { get; set; }
-
-        public virtual DbSet<Administradores> Administradores { get; set; }
 
     }
 }
