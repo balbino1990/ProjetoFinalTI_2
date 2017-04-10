@@ -13,5 +13,8 @@ namespace ProjetoFinal_InforQui.Controllers
         {
             return View();
         }
+
+        //POST: Home
+        
     }
 }
