@@ -1,0 +1,136 @@
+﻿@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "ContaUtilizador", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+
+           <table class="linkPartial">
+                <tr>
+                    <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff">
+                            @{
+                                if (Request.IsAuthenticated)
+                                {
+                                   <img src="~/Content/Imagens/profil.png" style="width:50px; height:40px">
+
+                                     @Html.ActionLink("Bem-vindo " + User.Identity + "", "Index", "ContaUtilizador", routeValues: null, htmlAttributes: new { title = "Account" })
+
+                                }
+
+                            }
+                 </td>
+
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff">
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+                </td>
+             </tr>
+        </table>
+                                    }
+                                }
+                                else
+                                {
+   <table class="linkPartial">
+       <tr>
+           <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;">
+               <img src="~/Content/Imagens/registar.png" style="width:50px; height:40px; cursor:pointer">
+               @Html.ActionLink("Registar", "Registar", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+           </td>
+          
+           <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;">
+               <img src="~/Content/Imagens/entrar.png" style="width:50px; height:40px; cursor:pointer">
+               @Html.ActionLink("Entrar", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </td>
+       </tr>
+        
+    </table>
+}
+
+@*################################################*@
+<table class="outroOpcoes">
+    <tr>
+        <td>
+            gagagggagaggagggaaga
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <table class="opArtigos">
+                <tr>
+                    <td>
+                        <div style="background:white; padding:10px; margin-top:40px; position:center">
+                            <div id="carousel-example-generic" class="carousel slide" style="border:1px solid black;" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li style="background-color:green" data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li style="background-color:green" data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+                                    <li style="background-color:green" data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+                                    <li style="background-color:green" data-target="#carousel-example-generic" data-slide-to="3" class="active"></li>
+                                </ol>
+
+                                <div class="carousel-inner">
+
+                                    <!--Imagem Capa-->
+                                    <div class="item active" style="max-height:450px;">
+                                        <img src="~/Content/Imagens/Capsupa_de_porcelana.jpg" style="width:200px; height:200px">
+                                        <div class="carousel-caption">
+                                            <a href="~/Content/Imagens/Capsupa_de_porcelana.jpg" target="_blank">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!--Imagem Calix Beaquer-->
+                                    <div class="item" style="max-height:450px;">
+                                        <img src="~/Content/Imagens/Calix_Beaker.jpg" style="height:200px; width:200px">
+                                        <div class="carousel-caption">
+                                            <a href="~/Content/Imagens/Calix_Beaker.jpg" target="_blank">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!--Imagem Balão de Fundo Chato-->
+                                    <div class="item" style="max-height:450px;">
+                                        <img src="~/Content/Imagens/balao_de_fundo_chato.jpg" style="height:200px; width:200px">
+                                        <div class="carousel-caption">
+                                            <a href="~/Content/Imagens/balao_de_fundo_chato.jpg" target="_blank">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!--Imagem Erlenmeyer-->
+                                    <div class="item" style="max-height:450px;">
+                                        <img src="~/Content/Imagens/Erlenmeyer.jpg" style="height:200px; width:200px">
+                                        <div class="carousel-caption">
+                                            <a href="~/Content/Imagens/Erlenmeyer.jpg" target="_blank">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           @{
+               if (Request.IsAuthenticated)
+               {
+                <table class="opCompra">
+                    <tr>
+                        <td>a</td>
+                    </tr>
+
+                    <tr class="opFinalizar">
+                        <td>
+                            <input type="submit" value="Finalizar" style="width:100px; height:50px; background-color:#ff6a00; font-size:20px; font-weight:bold;" />
+                        </td>
+                    </tr>
+                </table>
+                   }
+               }
+        </td>
+    </tr>
+</table>

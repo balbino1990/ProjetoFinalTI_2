@@ -127,6 +127,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Imagens\body3.jpg" />
+    <Content Include="Content\Imagens\contact.png" />
+    <Content Include="Content\Imagens\entrar.png" />
+    <Content Include="Content\Imagens\Home.png" />
+    <Content Include="Content\Imagens\mais.jpg" />
+    <Content Include="Content\Imagens\profil.png" />
+    <Content Include="Content\Imagens\registar.png" />
+    <Content Include="Content\Imagens\sobre.png" />
+    <Content Include="Content\Imagens\utilizador.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -149,7 +158,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UtilizadoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,14 +176,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Utilizadores\Create.cshtml" />
-    <Content Include="Views\Utilizadores\Delete.cshtml" />
-    <Content Include="Views\Utilizadores\Details.cshtml" />
-    <Content Include="Views\Utilizadores\Edit.cshtml" />
-    <Content Include="Views\Utilizadores\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="Views\Home\Utilizador.cshtml" />
+    <Content Include="Views\Home\Sobre.cshtml" />
+    <Content Include="Views\Home\Contactos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -185,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

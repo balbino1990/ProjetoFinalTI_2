@@ -16,3 +16,40 @@ textarea {
     max-width: 280px;
 }
 
+
+/*class autenticação e login no Shared, _LoginPartial*/
+.linkPartial{
+    position:absolute;
+    top:2%;
+    right:2%;
+    
+}
+
+/*class sobre no View Sobre*/
+.sobre{
+    border: 3px solid #006060;
+    background-color:#ffffff;
+    padding:3px;
+    position:absolute;
+    top:20%;
+    right:30%;
+    width:600px;
+    height:90px;
+}
+
+/*class paginaInicial no View Index*/
+.paginaInicial{
+    position:absolute;
+    top:30%;
+    right:30%;
+    font-size:30px; 
+    font-family:Algerian;
+    font-weight:bold
+}
+
+/*class link no View Layout*/
+.link{
+    position:absolute;
+    top:2%;
+    left:20%; 
+}
