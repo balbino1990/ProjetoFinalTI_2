@@ -79,6 +79,14 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -127,14 +135,45 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Imagens\body3.jpg" />
+    <Content Include="Content\Imagens\backgroundImage.jpg" />
+    <Content Include="Content\Imagens\balanca_analitica.jpg" />
+    <Content Include="Content\Imagens\balanca_tecnica.jpg" />
+    <Content Include="Content\Imagens\balao_de_fundo_chato.jpg" />
+    <Content Include="Content\Imagens\Baqueta_ou_bastão.jpg" />
+    <Content Include="Content\Imagens\bico_de_bunsen.jpg" />
+    <Content Include="Content\Imagens\Bureta.jpg" />
+    <Content Include="Content\Imagens\Calix_Beaker.jpg" />
+    <Content Include="Content\Imagens\Capsupa_de_porcelana.jpg" />
+    <Content Include="Content\Imagens\compra.png" />
+    <Content Include="Content\Imagens\Condensadores.jpg" />
     <Content Include="Content\Imagens\contact.png" />
+    <Content Include="Content\Imagens\dessecador.jpg" />
+    <Content Include="Content\Imagens\Destilacao.jpg" />
+    <Content Include="Content\Imagens\eksikator.jpg" />
     <Content Include="Content\Imagens\entrar.png" />
+    <Content Include="Content\Imagens\Erlenmeyer.jpg" />
+    <Content Include="Content\Imagens\estante_para_os_tubos.jpg" />
+    <Content Include="Content\Imagens\funil_de_bucher.jpg" />
+    <Content Include="Content\Imagens\funil_de_separacao.Jpeg" />
+    <Content Include="Content\Imagens\funil_de_vidro.jpg" />
     <Content Include="Content\Imagens\Home.png" />
+    <Content Include="Content\Imagens\InforQui1.png" />
+    <Content Include="Content\Imagens\jarra_de_vidro.jpg" />
+    <Content Include="Content\Imagens\Kitassato.JPG" />
     <Content Include="Content\Imagens\mais.jpg" />
+    <Content Include="Content\Imagens\mortero.jpg" />
+    <Content Include="Content\Imagens\papel_indicador.jpg" />
+    <Content Include="Content\Imagens\pinças_e_garras.jpg" />
+    <Content Include="Content\Imagens\pipetas.jpg" />
+    <Content Include="Content\Imagens\pisseta.jpg" />
     <Content Include="Content\Imagens\profil.png" />
+    <Content Include="Content\Imagens\proveta.JPG" />
     <Content Include="Content\Imagens\registar.png" />
     <Content Include="Content\Imagens\sobre.png" />
+    <Content Include="Content\Imagens\suporte_de-burreta.jpg" />
+    <Content Include="Content\Imagens\tela_de_amianto.jpg" />
+    <Content Include="Content\Imagens\tripe_de_ferro.jpg" />
+    <Content Include="Content\Imagens\tubos_de_ensaio.jpg" />
     <Content Include="Content\Imagens\utilizador.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -157,7 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\UtilizadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +223,15 @@
     <Content Include="Views\Home\Utilizador.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Contactos.cshtml" />
+    <Content Include="Views\Produtos\Create.cshtml" />
+    <Content Include="Views\Produtos\Delete.cshtml" />
+    <Content Include="Views\Produtos\Details.cshtml" />
+    <Content Include="Views\Produtos\Edit.cshtml" />
+    <Content Include="Views\Produtos\Index.cshtml" />
+    <Content Include="Views\Utilizador\Registar.cshtml" />
+    <Content Include="Views\Utilizador\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,7 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
