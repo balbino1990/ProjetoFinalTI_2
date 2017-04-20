@@ -17,36 +17,43 @@ namespace ProjetoFinal_InforQui.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(db.Produtos.ToList());
+            //vai retornar para o 'VIEW', a lista da tabela 'Produtos' na base de dados 'InforQui'
+            //e vai ordenar por o 'Nome' do produto
+            return View(db.Produtos.ToList().OrderBy(d=>d.Nome));
         }
 
-        // GET: Produtos/Details/5
-        public ActionResult Details(int? id)
+        // GET: Produtos/Detalhes/5
+        public ActionResult Detalhes(int? id)
         {
+            // Se o 'id' do produto igual a nulo
             if (id == null)
             {
+                // retorna um 'erro' do estado Http
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //Se não, vai encontrar ou criar um novo 'id' para a tabela 'Produto'
             Produtos produtos = db.Produtos.Find(id);
+            // Se este 'id' novo que foi criado, for igual a nulo
             if (produtos == null)
             {
+                //vai retornar um 'erro' de Http que disse: "não existe"
                 return HttpNotFound();
             }
+            //Se não, vai retornar para o 'View' os produtos na tabela
             return View(produtos);
         }
 
-        // GET: Produtos/Create
-        public ActionResult Create()
+        // GET: Produtos/Criar
+        public ActionResult Criar()
         {
+            // retorna para o 'VIEW' 
             return View();
         }
 
-        // POST: Produtos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Produtos/Criar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProdutosID,Nome,Descricao,Marca,Imagem,Tipo")] Produtos produtos, HttpPostedFileBase file)
+        public ActionResult Criar([Bind(Include = "ProdutosID,Nome,Descricao,Marca,Imagem,Tipo")] Produtos produtos, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +71,7 @@ namespace ProjetoFinal_InforQui.Controllers
         }
 
         // GET: Produtos/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -79,11 +86,9 @@ namespace ProjetoFinal_InforQui.Controllers
         }
 
         // POST: Produtos/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProdutosID,Nome,Descricao,Marca,Imagem,Tipo")] Produtos produtos)
+        public ActionResult Editar([Bind(Include = "ProdutosID,Nome,Descricao,Marca,Imagem,Tipo")] Produtos produtos)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +100,7 @@ namespace ProjetoFinal_InforQui.Controllers
         }
 
         // GET: Produtos/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Apagar(int? id)
         {
             if (id == null)
             {
@@ -110,7 +115,7 @@ namespace ProjetoFinal_InforQui.Controllers
         }
 
         // POST: Produtos/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("APagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

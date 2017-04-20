@@ -223,10 +223,10 @@
     <Content Include="Views\Home\Utilizador.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Contactos.cshtml" />
-    <Content Include="Views\Produtos\Create.cshtml" />
-    <Content Include="Views\Produtos\Delete.cshtml" />
-    <Content Include="Views\Produtos\Details.cshtml" />
-    <Content Include="Views\Produtos\Edit.cshtml" />
+    <Content Include="Views\Produtos\Criar.cshtml" />
+    <Content Include="Views\Produtos\Apagar.cshtml" />
+    <Content Include="Views\Produtos\Detalhes.cshtml" />
+    <Content Include="Views\Produtos\Editar.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Utilizador\Registar.cshtml" />
     <Content Include="Views\Utilizador\Login.cshtml" />
