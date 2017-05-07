@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -26,7 +27,16 @@ namespace ProjetoFinal_InforQui.Models
         public virtual DbSet<Compras_Produtos> Compras_Produtos { get; set; }
         //tabela de Compras
         public virtual DbSet<Compras> Compras { get; set; }
-        //tabela de Login de utilizador
-        public virtual DbSet<Login> Login { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // não podemos usar a chave seguinte, nesta geração de tabelas
+            // por causa das tabelas do Identity (gestão de utilizadores)
+            // modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

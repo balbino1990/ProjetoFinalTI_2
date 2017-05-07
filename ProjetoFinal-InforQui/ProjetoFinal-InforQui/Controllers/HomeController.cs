@@ -12,12 +12,6 @@ namespace ProjetoFinal_InforQui.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home/Index
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         //GET: Home/Utilizador
         public ActionResult Utilizador()
         {

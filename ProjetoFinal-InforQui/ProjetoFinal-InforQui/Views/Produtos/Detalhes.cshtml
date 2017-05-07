@@ -1,10 +1,10 @@
 ﻿@model ProjetoFinal_InforQui.Models.Produtos
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Detalhes dos produtos</h2>
 
 <div>
     <h4>Produtos</h4>
@@ -27,19 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Marca)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Marca)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Imagem)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Imagem)
+            <img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:200px;width:200px;" />
         </dd>
 
         <dt>
@@ -53,6 +45,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdutosID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Atualizar", "Atualizar", new { id = Model.ProdutoID }) |
+    @Html.ActionLink("Volta para a lista dos Produtos", "Index")
 </p>

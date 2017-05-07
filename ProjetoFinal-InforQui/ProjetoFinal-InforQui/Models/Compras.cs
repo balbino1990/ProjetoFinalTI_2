@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -15,10 +16,17 @@ namespace ProjetoFinal_InforQui.Models
         }
         //##################Os stributos da tabela Compras#####################
         //O identificador da tabela Compras
-        public int ComprasID { get; set; }
+        [Key]
+        [Display(Name = "Identificador de Compras")]
+        public int CompraID { get; set; }
         //O atributo data para fazer a compra
+        [Column(TypeName = "date")] //só regista a 'data', não é as horas
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")] //Vai display só as 'datas' na pagina, não 'horas'
+        [Required(ErrorMessage = "O campo da {0} é o preenchimento obrigatoria")]
+        [Display(Name = "Data da Compra")]
         public DateTime Data { get; set; }
-        
+    
+
         //########### Relacionamentos e chaves estrangeiras####################
         //chave estrangeira das compras
         [ForeignKey("Utilizador")]

@@ -50,10 +50,7 @@ namespace ProjetoFinal_InforQui.Controllers
             {
                 using (InforQuiDB infor = new InforQuiDB())
                 {
-                    var v = infor.Login.Where(a => a.Email.Equals(utilizador.Email) && a.Password.Equals(utilizador.Password)).FirstOrDefault();
-                    //Session["LogedUserID"] = v.LoginID.ToString();
-                    //Session["LogedUserFullName"] = v.Email.ToString();
-                    return RedirectToAction("Index", "Home");
+                    
                 }
             }
 

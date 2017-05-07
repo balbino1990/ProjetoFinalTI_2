@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ProjetoFinal_InforQui.Models.Produtos>
+
+@{
+    ViewBag.Title = "Index do cliente";
+}
+
+<div style="position:absolute; left:10%; top:2%">
+    <img src="~/Content/Imagens/InforQui1.png" style="width:100px; height:60px;" />
+</div>
+
+@using (Html.BeginForm(FormMethod.Get))
+{
+    <div style="position:fixed; left:20%">
+         @Html.TextBox("Procurar")
+        <input style="background-color:#00ff90; color:#ffffff;" type="submit" value="Procurar" />
+    </div>
+
+    <br /><br />
+    <div style="position:fixed; left:20%">
+        Tipo @Html.DropDownList("tipoProduto")
+    </div>
+}
+
+<div>
+    <table>
+        <tr>
+            <td>
+                <div style="background:white; padding:10px; margin-top:40px; position:center">
+                    <div id="carousel-example-generic" class="carousel slide" style="border:1px solid black;" data-ride="carousel">
+                       
+                        <div class="carousel-inner">
+
+                            <div class="item active" style="max-height:450px;">
+                                <img src="~/Content/Imagens/Body.png"  style="width:900px; height:300px;" />
+                                <div class="carousel-caption">
+                                    <a href="~/Content/Imagens/Body.png" target="_blank">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="item" style="max-height:450px;">
+                                <img src="~/Content/Imagens/Body2.png"  style="width:900px; height:300px;" />
+                                <div class="carousel-caption">
+                                    <a href="~/Content/Imagens/Body2.png" target="_blank">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="item" style="max-height:450px;">
+                                <img src="~/Content/Imagens/Body3.png"  style="width:900px; height:300px;" />
+                                <div class="carousel-caption">
+                                    <a href="~/Content/Imagens/Body3.png" target="_blank">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="item" style="max-height:450px;">
+                                <img src="~/Content/Imagens/Body4.png"  style="width:900px; height:300px;" />
+                                <div class="carousel-caption">
+                                    <a href="~/Content/Imagens/Body4.png" target="_blank">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<hr style="border:4px solid #808080; width:700px;"/>
+<br /><br />
+@foreach (var item in Model)
+{
+    <div clas="produtoCliente"style="left:20px; cursor:pointer; float:left; padding:2px; margin:5px;">
+        @* Vai referenciar para o url com o 'Action', view 'Details' e o controller 'AreaCliente'*@
+        <a href='@Url.Action("Detalhes", "AreaCliente", new { id = item.ProdutoID })'>
+        @*Vai mostrar cada url com a imagem dos produtos*@
+        <img src="~/Content/Imagens/@Html.DisplayFor(model => item.Imagem)" style="height:200px;width:200px;" /><br />
+        
+            <div style="background-color:#00ff90; color:#ffffff; text-align:center;">
+                @Html.DisplayFor(modelItem => item.Preco) <br />
+                @Html.DisplayFor(modelItem => item.Nome)
+            </div>
+    </a>
+    </div>
+ }
+
+
+

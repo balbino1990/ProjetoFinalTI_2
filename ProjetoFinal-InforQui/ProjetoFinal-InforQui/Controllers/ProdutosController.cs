@@ -43,17 +43,17 @@ namespace ProjetoFinal_InforQui.Controllers
             return View(produtos);
         }
 
-        // GET: Produtos/Criar
-        public ActionResult Criar()
+        // GET: Produtos/Adicionar
+        public ActionResult Adicionar()
         {
             // retorna para o 'VIEW' 
             return View();
         }
 
-        // POST: Produtos/Criar
+        // POST: Produtos/Adicionar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Criar([Bind(Include = "ProdutosID,Nome,Descricao,Marca,Imagem,Tipo")] Produtos produtos, HttpPostedFileBase file) //HttpPostedFileBase é uma classe do sistema que permite os clientes fazer o upload dos ficheiros
+        public ActionResult Adicionar([Bind(Include = "ProdutosID,Nome,Descricao,Preco,Imagem,Tipo")] Produtos produtos, HttpPostedFileBase file) //HttpPostedFileBase é uma classe do sistema que permite os clientes fazer o upload dos ficheiros
         {
             // Se o modelo ou classe 'Produtos' não tem erro
             if (ModelState.IsValid)
@@ -77,8 +77,8 @@ namespace ProjetoFinal_InforQui.Controllers
             return View(produtos);
         }
 
-        // GET: Produtos/Editar/5
-        public ActionResult Editar(int? id)
+        // GET: Produtos/Atualizar/5
+        public ActionResult Atualizar(int? id)
         {
             // Se o 'id' igual a nulo
             if (id == null)
@@ -98,16 +98,27 @@ namespace ProjetoFinal_InforQui.Controllers
             return View(produtos);
         }
 
-        // POST: Produtos/Editar/5
+        // POST: Produtos/Atualizar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         //Esta ActionResult vai ligar para os atributos da tabela 'Produtos'
-        public ActionResult Editar([Bind(Include = "ProdutosID,Nome,Descricao,Marca,Imagem,Tipo")] Produtos produtos)
+        public ActionResult Atualizar([Bind(Include = "ProdutosID,Nome,Descricao,Preco,Imagem,Tipo")] Produtos produtos, HttpPostedFileBase file)
         {
             // Se o modelo ou classe 'Produtos' não tem erro
             if (ModelState.IsValid)
             {
+                // Se o ficheiro que estava upload não igual a nulo
+                if (file != null)
+                {
+                    //Vai guardar este ficheiro no servidor baseada neste caminho
+                    file.SaveAs(HttpContext.Server.MapPath("~/Content/Imagens/") + file.FileName);
+                    //O atributo 'imagem' da tabela 'Produto' vai receber o ficheiro
+                    produtos.Imagem = file.FileName;
+                    //db.Entry(file).State = EntityState.Modified;
+                }
+
                 //
+
                 db.Entry(produtos).State = EntityState.Modified;
                 //vai guardar no base de dados 'InforQui', se já não tem erro
                 db.SaveChanges();
@@ -118,8 +129,8 @@ namespace ProjetoFinal_InforQui.Controllers
             return View(produtos);
         }
 
-        // GET: Produtos/Apagar/5
-        public ActionResult Apagar(int? id)
+        // GET: Produtos/Remover/5
+        public ActionResult Remover(int? id)
         {
             // Se o 'id' do produto igual a nulo
             if (id == null)
@@ -140,7 +151,7 @@ namespace ProjetoFinal_InforQui.Controllers
         }
 
         // POST: Produtos/Apagar/5
-        [HttpPost, ActionName("APagar")]
+        [HttpPost, ActionName("Remover")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
