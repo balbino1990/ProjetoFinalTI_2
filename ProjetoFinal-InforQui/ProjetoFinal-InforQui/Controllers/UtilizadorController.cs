@@ -22,7 +22,7 @@ namespace ProjetoFinal_InforQui.Controllers
         // POST: Registar/Utilizador
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Registar(Utilizadores conta)
+        public ActionResult Registar([Bind(Include = "UtilizadorID,Nome,Email,Morada,CodPostal,NIF,Contacto,Imagem")] Utilizadores conta)
         {
             if (ModelState.IsValid)
             {
