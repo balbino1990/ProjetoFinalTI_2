@@ -43,29 +43,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Imagem, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @{ 
-                    <script>
-                        //a função que vai mudar a imagem
-                        function mudarImagem(input) {
-                            //se o parametro inut é o tipo 'file' e contenha o valor zero
-                            if (input.files && input.files[0]) {
-                                //referençia uma variavel para o FileReader
-                                var reader = new FileReader();
-
-                                reader.onload = function (e) {
-                                    $('#imagem')
-                                        .attr('src', e.target.result)
-                                        .width(200)
-                                        .height(200);
-                                };
-
-                                reader.readAsDataURL(input.files[0]);
-                            }
-                        }
-                    </script>
-                }
-                <img id="imagem" src="~/Content/Imagens/@Html.DisplayFor(model=>model.Imagem)" style="width:200px;height:200px" />
-                <input type='file' onchange="mudarImagem(this);" />
+                <input id="Imagem" title="Upload o imagem"
+                       type="image" name="file" src="~/Content/Imagens/@Html.DisplayFor(model=>model.Imagem)" style="width:200px; height:200px;"/>
+                @*<img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:200px;width:200px;" />*@
+                @*<div class="editor-field">
+                    <input id="Imagem" title="Upload o imagem"
+                           type="file" name="file" />
+                </div>*@
+                @*@Html.EditorFor(model => model.Imagem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Imagem, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -86,21 +72,5 @@
 }
 
 <div>
-    @{ 
-        <script>
-            var formSubmitting = false;
-            var setFormSubmitting = function () { formSubmitting = true; };
-
-            window.onload = function () {
-                window.addEventListener("beforeunload", function (e) {
-                    return Error('Não pode');
-                });
-            };
-        </script>
-    }
-
-
-    <form method="post" onsubmit="setFormSubmitting()">
-        @Html.ActionLink("Volta para a lista dos Produtos", "Index")
-     </form>
+    @Html.ActionLink("Volta para a lista dos Produtos", "Index")
 </div>

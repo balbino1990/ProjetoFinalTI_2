@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
 using System.Web.Mvc;
 using ProjetoFinal_InforQui.Models;
 
@@ -29,9 +26,6 @@ namespace ProjetoFinal_InforQui.Controllers
         {
             if (ModelState.IsValid)
             {
-
-            
-
                 db.Utilizadores.Add(conta);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");

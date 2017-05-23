@@ -4,48 +4,45 @@
     ViewBag.Title = "Detalhes";
 }
 
-<br /><br />
-<hr />
+<h4>Detalhes dos produtos</h4>
 
-<div style="float:right;">
-    <h3 style="font-family:'Times New Roman'; font-weight:bold; text-align:center">
-        <i>@Html.DisplayFor(model => model.Nome)</i>
-    </h3>
-    <img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:400px;width:400px;" />
-</div>
-<br /><br />
-<table style="width:700px; height:50px; border:2px solid #00ffff;">
-    <tr style="border:3px solid #00ffff">
-        <th style="border:3px solid #00ffff; text-align:center">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th  style="border:3px solid #00ffff; text-align:center;">
-            @Html.DisplayNameFor(model => model.Preco)
-        </th>
-        <th  style="border:3px solid #00ffff; text-align:center">
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-
-    </tr>
-    <tr>
-        <td  style="border:3px solid #00ffff;">
-            @Html.DisplayFor(model => model.Descricao)
-        </td>
-        <td  style="border:3px solid #00ffff; font-size:18px; color:#ff00dc">
-            @Html.DisplayFor(model => model.Preco)
-        </td>
-        <td  style="border:3px solid #00ffff;">
-            @Html.DisplayFor(model => model.Tipo)
-        </td>
-    </tr>
-</table>
-<br /><br />
 <div>
-    <button style="background-color:#00ff90; height:50px; width:200px;">
-        @Html.ActionLink("Adicionar ao Carrinho", "Criar", "Compras_Produtos")
-    </button>
-    <button style="background-color:#ff00dc; height:50px; width:250px;">
-        @Html.ActionLink("Volta para a lista dos produtos", "Index")
+    <hr />
+
+    <table class="dl-horizontal">
+        <tr>
+            <td>
+                <img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:200px;width:200px;" />
+            </td>
+            
+            <td>
+                <table>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Nome):  </th>
+                        <td>@Html.DisplayFor(model => model.Nome)</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Descricao):    </th>
+                        <td>@Html.DisplayFor(model => model.Descricao)</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Preco):  </th>
+                        <td>@Html.DisplayFor(model => model.Preco)</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Tipo):  </th>
+                        <td>@Html.DisplayFor(model => model.Tipo)</td>
+                    </tr>
+                </table>
+        </tr>
+    </table>
+    <br /><br />
+    <button style="left:30%; background-color:#00ff90">
+        <img src="~/Content/Imagens/compra.png" style="width:50px; height:40px; cursor:pointer" />
+        @Html.ActionLink("Add Cart", "Criar", "Compras_Produtos")
     </button>
 </div>
-
+<br /><br />
+<p>
+    @Html.ActionLink("Volta para a lista dos produtos", "Index")
+</p>

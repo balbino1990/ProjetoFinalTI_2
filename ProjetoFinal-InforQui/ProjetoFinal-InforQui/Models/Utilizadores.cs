@@ -35,29 +35,26 @@ namespace ProjetoFinal_InforQui.Models
         [Required(ErrorMessage = "O campo {0} é obrigatoria")]
         [Display(Name = "Email de utilizador")]
         [RegularExpression("[A-Za-z][A-Za-z0-9._%+-]+@inforqui.com", 
-                          ErrorMessage = "o campo {0} tem de ser compatível com o servidor inforqui (@inforqui.com), e não permite os algarismos no inicio do email")]
+                          ErrorMessage = "o {0} tem de ser compativel com o servidor inforqui (@inforqui.com), e não permite os algarismos no inicio do email")]
         public string Email { get; set; }
         
         //A Morada do utilizador
         [Required(ErrorMessage = "O campo {0} é obrigatoria")]
         [Display(Name = "Morada do utilizador")]
-        [RegularExpression("[A-Z][A-ZÁÉÍÓÚÀÈÌÒÙÇaa-záéíóúàèìòùç]+", 
-                           ErrorMessage = "O campo morada só aceita a inicialização da letra com maiúscula e duas ou mais frases")]
+        [RegularExpression("[A-Z][A-ZÁÉÍÓÚÀÈÌÒÙÇaa-záéíóúàèìòùç]+( [A-ZÁÉÍÓÚÀÈÌÒÙÇa-záéíóúàèìòùç0-9])+")]
         public string Morada { get; set; }
 
         // O código postal do utilizador
         [Required(ErrorMessage = "O {0} é preenchimento obrigatoria")]
         [Display(Name = "Código Postal de utilizador")]
-        [RegularExpression("[0-9]+[-][0-9]{3}", 
-                          ErrorMessage = "O campo {0} vai aceitar 7 algarismos e um (-)")]
+        [RegularExpression("[0-9]+[-][0-9]{3}", ErrorMessage = "O campo {0} vai aceitar 7 algarismos e um (-)")]
         public string CodPostal { get; set; }
 
         //O NIF do utilizador
         [Required(ErrorMessage = "O {0} é preenchimento obrigatoria")]
         [Display(Name = "O NIF do utilizador")]
-        [RegularExpression("[0-9]{9}", 
-                          ErrorMessage = "O campo {0} só vai aceitar 9 algarismos")]
-        public string NIF { get; set; }
+        [RegularExpression("[0-9]{9}", ErrorMessage = "O campo {0} só vai aceitar 9 algarismos")]
+        public int NIF { get; set; }
 
         //O Contacto do utilizador
         [Required(ErrorMessage = "O campo {0} é obrigatoria")]
