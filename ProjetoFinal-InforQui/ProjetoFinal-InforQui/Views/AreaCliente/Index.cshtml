@@ -1,4 +1,7 @@
-﻿@model IEnumerable<ProjetoFinal_InforQui.Models.Produtos>
+﻿@model PagedList.IPagedList<ProjetoFinal_InforQui.Models.Produtos>
+@using PagedList.Mvc;
+
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
 
 @{
     ViewBag.Title = "Página inicial - InforQui";
@@ -73,19 +76,23 @@
 <br /><br />
 @foreach (var item in Model)
 {
-    <div clas="produtoCliente"style="left:20px; cursor:pointer; float:left; padding:2px; margin:5px;">
+    <div clas="produtoCliente"style="left:20px; cursor:pointer; float:left; padding:2px; margin:5px; border:2px solid #808080">
         @* Vai referenciar para o url com o 'Action', view 'Details' e o controller 'AreaCliente'*@
         <a href='@Url.Action("Detalhes", "AreaCliente", new { id = item.ProdutoID })'>
         @*Vai mostrar cada url com a imagem dos produtos*@
-        <img src="~/Content/Imagens/@Html.DisplayFor(model => item.Imagem)" style="height:200px;width:200px;" /><br />
+        <img src="~/Content/Imagens/@Html.DisplayFor(model => item.Imagem)" style="height:200px;width:150px;" /><br />
         
-            <div style="background-color:#00ff90; color:#ffffff; text-align:center;">
-                @Html.DisplayFor(modelItem => item.Preco) <br />
+            <div style="background-color:#00ff90; color:#ff00dc; font-size:18px; text-align:center; margin:2px;">
+                @Html.DisplayFor(modelItem => item.Preco)<br />
                 @Html.DisplayFor(modelItem => item.Nome)
             </div>
     </a>
     </div>
  }
 
+<br />
+<div style="top:123%; position:absolute;">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { pagina = page }))
+</div>
 
 

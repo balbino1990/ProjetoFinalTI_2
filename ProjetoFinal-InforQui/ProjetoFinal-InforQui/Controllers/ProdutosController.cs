@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoFinal_InforQui.Models;
+using PagedList;
 
 namespace ProjetoFinal_InforQui.Controllers
 {
@@ -15,11 +14,14 @@ namespace ProjetoFinal_InforQui.Controllers
         private InforQuiDB db = new InforQuiDB();
 
         // GET: Produtos
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
+            int tamanhoPagina = 5;
+            int numeroPagina = pagina ?? 1;
+
             //vai retornar para o 'VIEW', a lista da tabela 'Produtos' na base de dados 'InforQui'
             //e vai ordenar por o 'Nome' do produto
-            return View(db.Produtos.ToList().OrderBy(d=>d.Nome));
+            return View(db.Produtos.OrderBy(d=>d.Nome).ToPagedList(numeroPagina, tamanhoPagina));
         }
 
         // GET: Produtos/Detalhes/5

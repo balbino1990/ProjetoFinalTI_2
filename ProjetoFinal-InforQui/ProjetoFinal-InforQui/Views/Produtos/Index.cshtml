@@ -1,57 +1,62 @@
-﻿@model IEnumerable<ProjetoFinal_InforQui.Models.Produtos>
+﻿@model PagedList.IPagedList<ProjetoFinal_InforQui.Models.Produtos>
+@using PagedList.Mvc;
 
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<br /><br />
 <p>
     @Html.ActionLink("Adicionar novo produto", "Adicionar")
 </p>
-<table class="table" border="1">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
+<table>
+    <tr style="border:3px solid #00ffff;">
+        <th style="border:3px solid #00ffff; text-align:center">
+            @Html.DisplayName("Nome do Produto")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+        <th style="border:3px solid #00ffff; text-align:center">
+            @Html.DisplayName("Descrição do Produto")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagem)
+        <th style="border:3px solid #00ffff; text-align:center">
+            @Html.DisplayName("Imagem do Produto")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
+        <th style="border:3px solid #00ffff; text-align:center">
+            @Html.DisplayName("Tipo do Produto")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Preco)
+        <th style="border:3px solid #00ffff; text-align:center">
+            @Html.DisplayName("Preço do Produto")
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
+    <tr style="border:3px solid #00ffff;">
+        <td style="border:3px solid #00ffff;">
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
-        <td>
+        <td style="border:3px solid #00ffff;">
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
-        <td>
-            <img src="~/Content/Imagens/@Html.DisplayFor(model =>item.Imagem)" style="height:200px;width:200px;" />
+        <td style="border:3px solid #00ffff;">
+            <a href='@Url.Action("Detalhes", "Produtos", new { id = item.ProdutoID })'>
+                <img src="~/Content/Imagens/@Html.DisplayFor(model =>item.Imagem)" style="height:200px;width:200px;" title="Clique para ver detalhes do produto"/>
+            </a>
         </td>
-        <td>
+
+        <td style="border:3px solid #00ffff;">
             @Html.DisplayFor(modelItem => item.Tipo)
         </td>
-        <td>
+        <td style="border:3px solid #00ffff; color:#ff00dc; font-size:18px;">
            @Html.DisplayFor(modelItem => item.Preco)
-        </td>
-        <td>
-            @Html.ActionLink("Atualizar", "Atualizar", new { id=item.ProdutoID }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.ProdutoID }) |
-            @Html.ActionLink("Remover", "Remover", new { id=item.ProdutoID })
         </td>
     </tr>
 }
-
+    <tr>
+        <td colspan="5">
+            <div>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { pagina = page }))
+            </div>
+        </td>
+    </tr>
 </table>
+

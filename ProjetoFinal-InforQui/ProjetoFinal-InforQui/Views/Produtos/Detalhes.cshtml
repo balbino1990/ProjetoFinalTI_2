@@ -4,47 +4,54 @@
     ViewBag.Title = "Detalhes";
 }
 
-<h2>Detalhes dos produtos</h2>
+<br /><br />
+<hr />
 
-<div>
-    <h4>Produtos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+<div style="float:left">
+    <table style="border:3px solid #00ffff; width:600px; height:100px;">
+        <tr>
+            <th style="border:3px solid #00ffff;">
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th style="border:3px solid #00ffff;">
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th style="border:3px solid #00ffff;">
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
+        <tr>
+            <td style="border:3px solid #00ffff;">
+                @Html.DisplayFor(model => model.Descricao)
+            </td>
+            <td style="border:3px solid #00ffff; font-size:18px; color:#ff00dc;">
+                @Html.DisplayFor(model => model.Preco)
+            </td>
+            <td style="border:3px solid #00ffff;">
+                @Html.DisplayFor(model => model.Tipo)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagem)
-        </dt>
-
-        <dd>
-            <img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:200px;width:200px;" />
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
-
-    </dl>
+        </tr>
+    </table>
+    <br /><br /><br /><br />
+    <div>
+        <button style="background-color:#00ffff; height:50px; width:100px; font-size:18px;">
+            @Html.ActionLink("Atualizar", "Atualizar", new { id = Model.ProdutoID })
+        </button>
+        <button style="background-color:#ff0000; height:50px; width:100px; font-size:18px;">
+            @Html.ActionLink("Remover", "Remover", new { id = Model.ProdutoID })
+        </button>
+        <button style="background-color:#808080; height:50px; width:300px; font-size:18px; ">
+            @Html.ActionLink("Volta para a lista dos Produtos", "Index")
+        </button>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Atualizar", "Atualizar", new { id = Model.ProdutoID }) |
-    @Html.ActionLink("Volta para a lista dos Produtos", "Index")
-</p>
+<div style="float:right;">
+    <h3 style="color:#808080; font-family:'Times New Roman'; text-align:center;">
+        <i>@Html.DisplayFor(model => model.Nome)</i>
+    </h3>
+    <img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:400px;width:400px;" />
+</div>
+

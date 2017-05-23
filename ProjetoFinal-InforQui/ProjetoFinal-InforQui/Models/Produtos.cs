@@ -24,14 +24,14 @@ namespace ProjetoFinal_InforQui.Models
         //O nome do produto
         [Required(ErrorMessage = "O campo {0} é obrigatoria")]
         [Display(Name = "Nome do produto")]
-        [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèìòùãõç]+( [A-Z][a-záéíóúàèìòùãõç]+)*", 
+        [RegularExpression("[A-ZÁÉÍOÚÇÂÂÀÈÌÒÙa-záéíóúàèìòùçâã][A-ZÁÉÍOÚÇÂÂÀÈÌÒÙa-záéíóúàèìòùçâã0-9]*[ A-ZÁÉÍOÚÇÂÂÀÈÌÒÙa-záéíóúàèìòùçâã0-9,'.%]*", 
                             ErrorMessage = "O campo do {0} não permite o algarismo e letra minúscula no inicio do nome e permite os caracteres português")]
         public string Nome { get; set; }
         
         //A descrição do produto
         [Required(ErrorMessage = "O campo {0} é obrigatoria")]
         [Display(Name = "Descrição do produto")]
-        [RegularExpression("[A-ZÁÉÍÓÚ0-9][a-záéíóúàèìòùãõç0-9]+( [A-Z][a-záéíóúàèìòùãõç0-9]+)*",
+        [RegularExpression("[A-ZÁÉÍOÚÇÂÂÀÈÌÒÙa-záéíóúàèìòùçâã0-9][A-ZÁÉÍOÚÇÂÂÀÈÌÒÙa-záéíóúàèìòùçâã0-9]*[ A-ZÁÉÍOÚÇÂÂÀÈÌÒÙa-záéíóúàèìòùçâã0-9.'+*-_,?={}?/``´´%@#&:;]*",
                           ErrorMessage = "O campo do {0} não permite no ínicio da descrição com letra minúscula")]
         public string Descricao { get; set; }
         

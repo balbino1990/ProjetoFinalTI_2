@@ -29,6 +29,5 @@ namespace ProjetoFinal_InforQui.Controllers
         {
             return View();
         }
-        
     }
 }

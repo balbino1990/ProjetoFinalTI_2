@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using ProjetoFinal_InforQui.Models;
 
 namespace ProjetoFinal_InforQui.Controllers
@@ -15,26 +16,32 @@ namespace ProjetoFinal_InforQui.Controllers
         private InforQuiDB db = new InforQuiDB();
 
         // GET: AreaCliente
-        public ActionResult Index(string Procurar)
+        public ActionResult Index(string Procurar, int? pagina)
         {
-            var produtos = from s in db.Produtos
-                           select s;
-            if (!String.IsNullOrEmpty(Procurar))
-            {
-                produtos = produtos.Where(s => s.Nome.Contains(Procurar));               
-            }
+            
 
 
             List<SelectListItem> item = new List<SelectListItem>();
             item.Add(new SelectListItem { Text = "Instrumento", Value = "1" });
             item.Add(new SelectListItem { Text = "Material", Value = "2" });
 
-            ViewBag.tipoProduto = item; 
+            ViewBag.tipoProduto = item;
 
 
-            return View(produtos.ToList());
+            //#########################################################
+            //#####Fazer a paginação dos produtos######################
+            int tamanhoPagina = 5;
+            int numeroPagina = pagina ?? 1;     // o número da pagina for nulo, vamos inserir um
+
+
+            return View(db.Produtos.OrderBy(p=> p.Nome).ToPagedList(numeroPagina, tamanhoPagina));
         }
         
+        //GET: AreaCliente/Listar
+        public ActionResult Listar()
+        {
+            return View();
+        }
 
         // GET: AreaCliente/Detalhes/5
         public ActionResult Detalhes(int? id)
