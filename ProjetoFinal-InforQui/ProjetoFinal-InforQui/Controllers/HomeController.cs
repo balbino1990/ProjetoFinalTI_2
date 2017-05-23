@@ -1,34 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using ProjetoFinal_InforQui.Models;
+﻿using System.Web.Mvc;
 
-namespace ProjetoFinal_InforQui.Controllers
+namespace IdentitySample.Controllers
 {
     public class HomeController : Controller
     {
-        //GET: Home/Utilizador
-        public ActionResult Utilizador()
+        public ActionResult Index()
         {
             return View();
         }
 
-        //GET: Home/Sobre
-        public ActionResult Sobre()
+        [Authorize]
+        public ActionResult About()
         {
+            ViewBag.Message = "Your app description page.";
+
             return View();
         }
 
-        //GET: Home/Contactos
-        public ActionResult Contactos()
+        public ActionResult Contact()
         {
+            ViewBag.Message = "Your contact page.";
+
             return View();
         }
-        
     }
 }

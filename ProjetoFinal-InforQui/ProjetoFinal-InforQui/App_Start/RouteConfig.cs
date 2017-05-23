@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace ProjetoFinal_InforQui
+namespace IdentitySample
 {
     public class RouteConfig
     {
@@ -16,7 +12,7 @@ namespace ProjetoFinal_InforQui
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "AreaCliente", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -14,7 +14,7 @@ namespace ProjetoFinal_InforQui.Controllers
     {
         private InforQuiDB db = new InforQuiDB();
 
-        // GET: AreaCliente
+        // GET: AreaCliente/
         public ActionResult Index(string Procurar)
         {
             var produtos = from s in db.Produtos
