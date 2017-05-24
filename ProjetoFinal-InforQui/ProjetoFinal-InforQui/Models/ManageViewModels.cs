@@ -3,7 +3,7 @@ using Microsoft.Owin.Security;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace IdentitySample.Models
+namespace ProjetoFinal_InforQui.Models
 {
     public class IndexViewModel
     {

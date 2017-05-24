@@ -1,4 +1,4 @@
-﻿using IdentitySample.Models;
+﻿using ProjetoFinal_InforQui.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace IdentitySample.Controllers
+namespace ProjetoFinal_InforQui.Controllers
 {
     [Authorize]
     public class ManageController : Controller
@@ -315,7 +315,7 @@ namespace IdentitySample.Controllers
         public ActionResult LinkLogin(string provider)
         {
             // Request a redirect to the external login provider to link a login for the current user
-            return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
+            return new ContaController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
         }
 
         //

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace IdentitySample
+namespace ProjetoFinal_InforQui
 {
     public class FilterConfig
     {

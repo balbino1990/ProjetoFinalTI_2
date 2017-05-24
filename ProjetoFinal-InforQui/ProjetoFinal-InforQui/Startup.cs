@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace IdentitySample
+namespace ProjetoFinal_InforQui
 {
     public partial class Startup
     {

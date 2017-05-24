@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using IdentitySample.Models;
+using ProjetoFinal_InforQui.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace IdentitySample.Controllers
+namespace ProjetoFinal_InforQui.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class ContaController : Controller
     {
-        public AccountController()
+        public ContaController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public ContaController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -37,6 +37,71 @@ namespace IdentitySample.Controllers
                 _userManager = value;
             }
         }
+
+
+
+        //######################################################################################
+        //              Registo de utilizadores
+        //#####################################################################################
+        //
+        // GET: /Utilizadores/Registrar
+        [AllowAnonymous]
+        public ActionResult Registrar()
+        {
+            return View();
+        }
+
+
+        // POST: /Utilizadores/Registrar
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Registrar(Registo model)
+        {
+            // Se o modelo é válida
+            if (ModelState.IsValid)
+            {
+                // define uma variavel user que está referenciar a classe AplicationUser
+                var user = new ApplicationUser
+                {
+                    //referenciar os atributos para o modelo Conta classe registo
+                   UserName = model.Nome,
+                   Email = model.Email,
+                   PasswordHash = model.Password,
+                   Morada = model.Morada,
+                   CodPostal = model.CodPostal,
+                   NIF = model.NIF,
+                   Contacto = model.Contacto,
+                   Imagem = model.Imagem 
+
+
+                };
+                //define uma variavel result que vai esperar a classe UserManager que está referenciar com o metodo CreateAsync,
+                //que vai verificar os dados introduzidos pelo utiilizador.
+                var result = await UserManager.CreateAsync(user);
+                // Se for o resultado está sucesso ou sejá os dados introduzidos são válidos e receber pelo base de dados
+                if (result.Succeeded)
+                {
+                    // gera uma variavel 'code' que vai esperar pelo um 'token' atráves do ID da classe
+                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //gera uma variavel callbackUrl 
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
+                    ViewBag.Link = callbackUrl;
+                    return View("DisplayEmail");
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+
+        //#############################################################################################################################
+
+
+
 
         //
         // GET: /Account/Login
@@ -132,39 +197,7 @@ namespace IdentitySample.Controllers
             }
         }
 
-        //
-        // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
 
-        //
-        // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
-                    ViewBag.Link = callbackUrl;
-                    return View("DisplayEmail");
-                }
-                AddErrors(result);
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
 
         //
         // GET: /Account/ConfirmEmail

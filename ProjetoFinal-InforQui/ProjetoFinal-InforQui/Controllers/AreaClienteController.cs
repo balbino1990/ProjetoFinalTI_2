@@ -12,27 +12,27 @@ namespace ProjetoFinal_InforQui.Controllers
 {
     public class AreaClienteController : Controller
     {
-        private InforQuiDB db = new InforQuiDB();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AreaCliente/
         public ActionResult Index(string Procurar)
         {
-            var produtos = from s in db.Produtos
-                           select s;
-            if (!String.IsNullOrEmpty(Procurar))
-            {
-                produtos = produtos.Where(s => s.Nome.Contains(Procurar));               
-            }
+            //var produtos = from s in db.Produtos
+            //               select s;
+            //if (!String.IsNullOrEmpty(Procurar))
+            //{
+            //    produtos = produtos.Where(s => s.Nome.Contains(Procurar));               
+            //}
 
 
             List<SelectListItem> item = new List<SelectListItem>();
             item.Add(new SelectListItem { Text = "Instrumento", Value = "1" });
             item.Add(new SelectListItem { Text = "Material", Value = "2" });
 
-            ViewBag.tipoProduto = item; 
+            //ViewBag.tipoProduto = item; 
 
 
-            return View(produtos.ToList());
+           return View(db.Produtos.ToList().OrderBy(p=>p.Nome));
         }
         
 

@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace IdentitySample
+namespace ProjetoFinal_InforQui
 {
     public class BundleConfig
     {

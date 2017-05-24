@@ -210,6 +210,7 @@
     <Content Include="Content\Imagens\balanca_analitica.jpg" />
     <Content Include="Content\Imagens\balanca_tecnica.jpg" />
     <Content Include="Content\Imagens\balao_de_fundo_chato.jpg" />
+    <Content Include="Content\Imagens\balbino.jpg" />
     <Content Include="Content\Imagens\Baqueta_ou_bastão.jpg" />
     <Content Include="Content\Imagens\bico_de_bunsen.jpg" />
     <Content Include="Content\Imagens\Bissulfito_de_Sodio.jpg" />
@@ -292,26 +293,24 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\AreaClienteController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
     <Compile Include="Controllers\Compras_ProdutosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
-    <Compile Include="Controllers\UtilizadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Compras.cs" />
     <Compile Include="Models\Compras_Produtos.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\InforQuiDB.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Produtos.cs" />
     <Compile Include="Models\Utilizadores.cs" />
@@ -334,8 +333,6 @@
     <Content Include="Views\Produtos\Detalhes.cshtml" />
     <Content Include="Views\Produtos\Atualizar.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
-    <Content Include="Views\Utilizador\Registar.cshtml" />
-    <Content Include="Views\Utilizador\Login.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\AreaCliente\Detalhes.cshtml" />
@@ -368,19 +365,19 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\DisplayEmail.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Conta\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Conta\VerifyCode.cshtml" />
+    <Content Include="Views\Conta\SendCode.cshtml" />
+    <Content Include="Views\Conta\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Conta\ResetPassword.cshtml" />
+    <Content Include="Views\Conta\Registrar.cshtml" />
+    <Content Include="Views\Conta\Login.cshtml" />
+    <Content Include="Views\Conta\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Conta\ForgotPassword.cshtml" />
+    <Content Include="Views\Conta\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Conta\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Conta\DisplayEmail.cshtml" />
+    <Content Include="Views\Conta\ConfirmEmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

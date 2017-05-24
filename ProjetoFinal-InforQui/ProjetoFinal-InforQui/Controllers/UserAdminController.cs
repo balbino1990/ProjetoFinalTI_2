@@ -1,4 +1,4 @@
-﻿using IdentitySample.Models;
+﻿using ProjetoFinal_InforQui.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace IdentitySample.Controllers
+namespace ProjetoFinal_InforQui.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class UsersAdminController : Controller
@@ -86,7 +86,7 @@ namespace IdentitySample.Controllers
         //
         // POST: /Users/Create
         [HttpPost]
-        public async Task<ActionResult> Create(RegisterViewModel userViewModel, params string[] selectedRoles)
+        public async Task<ActionResult> Create(Registo userViewModel, params string[] selectedRoles)
         {
             if (ModelState.IsValid)
             {
