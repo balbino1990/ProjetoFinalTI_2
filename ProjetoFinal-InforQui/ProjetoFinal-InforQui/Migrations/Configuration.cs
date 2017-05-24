@@ -7,14 +7,14 @@ namespace ProjetoFinal_InforQui.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ProjetoFinal_InforQui.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ProjetoFinal_InforQui.Models.InforQuiDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(ProjetoFinal_InforQui.Models.ApplicationDbContext context)
+        protected override void Seed(ProjetoFinal_InforQui.Models.InforQuiDB context)
         {
             //#######################################################################################
             //Adiciona os Produtos

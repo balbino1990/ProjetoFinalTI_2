@@ -12,7 +12,7 @@ namespace ProjetoFinal_InforQui.Controllers
 {
     public class ProdutosController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private InforQuiDB db = new InforQuiDB();
 
         // GET: Produtos
         public ActionResult Index()

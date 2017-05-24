@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,11 +9,13 @@ namespace ProjetoFinal_InforQui.Models
 {
     public class Utilizadores
     {
+        //#####################################################
+        //O construtor da classe Utilizadores
         public Utilizadores()
         {
             ListaDeCompras = new HashSet<Compras>();
         }
-
+        
         //####################################################
         //##########Os atributos da tabela utilizador#########
         //####################################################
@@ -20,21 +23,21 @@ namespace ProjetoFinal_InforQui.Models
         [Key]
         [Display(Name = "Identificador de utilizador")]
         public int UtilizadorID { get; set; }
-
+        
         //O Nome do utilizador
-        [Required(ErrorMessage = "{0} é obrigatoria")]
-        [Display(Name = "Nome Completo")]
+        [Required(ErrorMessage = "O campo {0} é obrigatoria")]
+        [Display(Name = "Nome do utilizador")]
         [RegularExpression("[A-Z][a-záéíóúàèìòùãõäëïöüçñ]+((( )|(-)|( (e|de|da|dos) )|( d'))[A-Z][a-záéíóúàèìòùãõäëïöüçñ]+){1,3}",
                           ErrorMessage = "Deve escrever o {0} só com letras. Pode usar um espaço em branco entre palavras. Deve começar cada nome com uma maiúscula, seguida de minúsculas.")]
         public string Nome { get; set; }
-
+        
         //O Email do utilizador
         [Required(ErrorMessage = "O campo {0} é obrigatoria")]
         [Display(Name = "Email de utilizador")]
-        [RegularExpression("[A-Za-z][A-Za-z0-9._%+-]+@inforqui.com",
+        [RegularExpression("[A-Za-z][A-Za-z0-9._%+-]+@inforqui.com", 
                           ErrorMessage = "o {0} tem de ser compativel com o servidor inforqui (@inforqui.com), e não permite os algarismos no inicio do email")]
         public string Email { get; set; }
-
+        
         //A Morada do utilizador
         [Required(ErrorMessage = "O campo {0} é obrigatoria")]
         [Display(Name = "Morada do utilizador")]
@@ -62,7 +65,7 @@ namespace ProjetoFinal_InforQui.Models
         //O Imgem do utilizador
         //[Required(ErrorMessage = "O campo {0} é obrigatoria")]
         [Display(Name = "Imagem de Utilizador")]
-        public string Imagem { get; set; }
+        public  string Imagem { get; set; }
 
         //##################################################################
         //################Relacionamento e chaves estrangeiras##############

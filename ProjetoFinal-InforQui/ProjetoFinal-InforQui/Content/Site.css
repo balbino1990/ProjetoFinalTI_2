@@ -16,27 +16,46 @@ textarea {
     max-width: 280px;
 }
 
-/* styles for validation helpers */
-.field-validation-error {
-    color: #b94a48;
+
+/*class autenticação e login no Shared, _LoginPartial*/
+.linkPartial{
+    position:absolute;
+    top:2%;
+    right:2%;
+    
 }
 
-.field-validation-valid {
-    display: none;
+/*class sobre no View Sobre*/
+.sobre{
+    border: 3px solid #006060;
+    background-color:#ffffff;
+    padding:3px;
+    position:absolute;
+    top:20%;
+    right:30%;
+    width:600px;
+    height:90px;
 }
 
-input.input-validation-error {
-    border: 1px solid #b94a48;
+/*class paginaInicial no View Index*/
+.paginaInicial{
+    position:absolute;
+    top:30%;
+    right:30%;
+    font-size:30px; 
+    font-family:Algerian;
+    font-weight:bold
 }
 
-input[type="checkbox"].input-validation-error {
-    border: 0 none;
+/*class link no View Layout*/
+.link{
+    position:absolute;
+    top:2%;
+    left:20%; 
 }
 
-.validation-summary-errors {
-    color: #b94a48;
+.produtoCliente:hover{
+    color:#ff0000;
 }
 
-.validation-summary-valid {
-    display: none;
-}
+
