@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated) {
+    using (Html.BeginForm("LogOff", "Conta", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })) {
+        @Html.AntiForgeryToken()
+
+        <table class="linkPartial">
+            <tr>
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff">
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            <img src="~/Content/Imagens/profil.png" style="width:50px; height:40px">
+
+                            @Html.ActionLink("Bem-vindo " + User.Identity + "", "Registrar", "Conta", routeValues: null, htmlAttributes: new { title = "Account" })
+
+                        }
+
+                    }
+                    </td>
+                    <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff">
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+                    </td>
+            </tr>
+        </table>
+                            }
+                        }
+                        else
+                        {
+
+    <div class="navbar-fixed-top">
+        <table style="position:absolute; left:75%;">
+            <tr>
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;">
+                    <img src="~/Content/Imagens/registar.png" style="width:50px; height:40px; cursor:pointer">
+                    @Html.ActionLink("Registrar", "Registrar", "Conta", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                </td>
+
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;">
+                    <img src="~/Content/Imagens/entrar.png" style="width:50px; height:40px; cursor:pointer">
+                    @Html.ActionLink("Entrar", "Login", "Conta", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                </td>
+            </tr>
+
+        </table>
+    </div>
+}

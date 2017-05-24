@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -15,18 +17,39 @@ namespace ProjetoFinal_InforQui.Models
 
         //############ Os atributos da tabela Produtos################
         //O identificador da tabela Produtos
-        public int ProdutosID { get; set; }
+        [Key]
+        [Display(Name = "Identifcador do Produto")]
+        public int ProdutoID { get; set; }
+        
         //O nome do produto
+        [Required(ErrorMessage = "O campo {0} é obrigatoria")]
+        [Display(Name = "Nome do produto")]
+        [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèìòùãõç]+( [A-Z][a-záéíóúàèìòùãõç]+)*", 
+                            ErrorMessage = "O campo do {0} não permite o algarismo e letra minúscula no inicio do nome e permite os caracteres português")]
         public string Nome { get; set; }
+        
         //A descrição do produto
+        [Required(ErrorMessage = "O campo {0} é obrigatoria")]
+        [Display(Name = "Descrição do produto")]
+        [RegularExpression("[A-ZÁÉÍÓÚ0-9][a-záéíóúàèìòùãõç0-9]+( [A-Z][a-záéíóúàèìòùãõç0-9]+)*",
+                          ErrorMessage = "O campo do {0} não permite no ínicio da descrição com letra minúscula")]
         public string Descricao { get; set; }
+        
         //O preço do produto
-        public char Preco { get; set; }
-        //A marca do produto
-        public string Marca { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatoria")]
+        [RegularExpression("[€][0-9]+[,]([0-9]{2})", 
+                          ErrorMessage = "O preço do produto tem de ser usar a moeda euro (€) e tem de ter dois digitos decimais ultimos")]
+        [Display(Name = "Preço do produto")]
+        public string Preco { get; set; }
+        
         //A imagem do produto
-        public Byte Imagem { get; set; }
+        //[Required(ErrorMessage = "O campo {0} é obrigatoria")]
+        [Display(Name = "Imagem do produto")]
+        public string Imagem { get; set; }
+        
         //O tipo do produto
+        //[Required(ErrorMessage = "O campo {0} é obrigatoria")]
+        [Display(Name = "Tipo do produto")]
         public string Tipo { get; set; }
 
         //########## Relacionamentos e chaves estrangeiras

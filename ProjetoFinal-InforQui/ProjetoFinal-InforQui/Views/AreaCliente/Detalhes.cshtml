@@ -1,0 +1,48 @@
+﻿@model ProjetoFinal_InforQui.Models.Produtos
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h4>Detalhes dos produtos</h4>
+
+<div>
+    <hr />
+
+    <table class="dl-horizontal">
+        <tr>
+            <td>
+                <img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:200px;width:200px;" />
+            </td>
+            
+            <td>
+                <table>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Nome):  </th>
+                        <td>@Html.DisplayFor(model => model.Nome)</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Descricao):    </th>
+                        <td>@Html.DisplayFor(model => model.Descricao)</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Preco):  </th>
+                        <td>@Html.DisplayFor(model => model.Preco)</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Tipo):  </th>
+                        <td>@Html.DisplayFor(model => model.Tipo)</td>
+                    </tr>
+                </table>
+        </tr>
+    </table>
+    <br /><br />
+    <button style="left:30%; background-color:#00ff90">
+        <img src="~/Content/Imagens/compra.png" style="width:50px; height:40px; cursor:pointer" />
+        @Html.ActionLink("Add Cart", "Criar", "Compras_Produtos")
+    </button>
+</div>
+<br /><br />
+<p>
+    @Html.ActionLink("Volta para a lista dos produtos", "Index")
+</p>

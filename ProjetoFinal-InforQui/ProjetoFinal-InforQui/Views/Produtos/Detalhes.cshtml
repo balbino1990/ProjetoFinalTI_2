@@ -1,0 +1,50 @@
+﻿@model ProjetoFinal_InforQui.Models.Produtos
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes dos produtos</h2>
+
+<div>
+    <h4>Produtos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagem)
+        </dt>
+
+        <dd>
+            <img src="~/Content/Imagens/@Html.DisplayFor(model =>model.Imagem)" style="height:200px;width:200px;" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Atualizar", "Atualizar", new { id = Model.ProdutoID }) |
+    @Html.ActionLink("Volta para a lista dos Produtos", "Index")
+</p>
