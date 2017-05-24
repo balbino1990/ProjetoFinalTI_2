@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,19 @@ namespace ProjetoFinal_InforQui.Models
 {
     public class Compras_Produtos
     {
-
         //################## Os atributos da tabela Compras_produtos #########
         //O identificador da tabela Compras_Produtos
-        public int Compras_ProdutosID { get; set; }
+        [Key]
+        [Display(Name = "Identificador de Compras Produtos")]
+        public int Compras_ProdutoID { get; set; }
         //A quantidade da compra dos produtos
+        [Display(Name = "Quantidade dos Produtos")]
+        [Required(ErrorMessage = "O {0} é preenchimento obrigatorio")]
         public int Quantidade { get; set; }
         //O preço dos produtos comprado
-        public char Preco { get; set; }
+        [Display(Name = "Preço do produto comprados")]
+        [Required(ErrorMessage="O {0} é preenchimento obrigatorio")]
+        public string Preco { get; set; }
 
         //######### Relacionamentos e Chaves estrangeiras ###################
         //chave estrangeira da tabela Compras_Produtos
